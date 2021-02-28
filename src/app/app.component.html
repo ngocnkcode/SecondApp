@@ -1,0 +1,44 @@
+<section class="new-product">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="new-product-admin">
+                    <div class="new-product-title">
+                        <h2>
+                            <a href="">Sản phẩm</a>
+                            <strong>Mới</strong>
+                        </h2>
+                        <div class="new-product-view">
+                            <a href="">Nam</a>
+                            <a href="">Nữ</a>
+                            <a href="">Phụ Kiện</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-6" *ngFor='let p of products'>
+                <div class="one-new-product">
+                    <a [routerLink]="['/detail/', p.id]"></a>
+                    <span class="sale-box" *ngIf='p.sale !==""'>-11%</span>
+                    <div class="product">
+                        <img src="{{p.listImages[0].imageUrl}}" alt="" class="img-fluid background">
+                        <img src="{{p.listImages[1].imageUrl}}" alt="" class="img-fluid show">
+                    </div>
+                    <h4 class="text-center">{{p.classify}}</h4>
+                    <h3 class="text-center">{{p.name}}</h3>
+                    <div class="product-prince text-center">
+                        <strong>{{p.price}}đ</strong>
+                        <span *ngIf='p.sale !==""'>{{p.sale}}đ</span>
+                    </div>
+                    <div class="product-card">
+                        <a href="" class="text-center">Thêm vào giỏ hàng</a>
+                    </div>
+                </div>
+            </div>
+            <a href="" class="viewmore text-center">Xem tất cả . Sản phẩm <strong>mới</strong></a>
+        </div>
+    </div>
+</section>
+<router-outlet></router-outlet>
